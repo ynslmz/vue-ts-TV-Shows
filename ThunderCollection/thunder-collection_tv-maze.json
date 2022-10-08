@@ -1,0 +1,145 @@
+{
+    "client": "Thunder Client",
+    "collectionName": "tv-maze",
+    "dateExported": "2022-10-08T09:17:39.665Z",
+    "version": "1.1",
+    "folders": [],
+    "requests": [
+        {
+            "_id": "c8f5aa1a-3f14-43ed-a4fb-702cf61f4a66",
+            "colId": "722df8ee-8f6c-4d9f-86a3-457b7e517fd7",
+            "containerId": "",
+            "name": "GetFirstPage",
+            "url": "/shows",
+            "method": "GET",
+            "sortNum": 10000,
+            "created": "2022-10-08T07:48:11.668Z",
+            "modified": "2022-10-08T08:15:31.500Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "0c93c5ee-3992-4aea-8f3e-c774f09593a3",
+            "colId": "722df8ee-8f6c-4d9f-86a3-457b7e517fd7",
+            "containerId": "",
+            "name": "Get By Id",
+            "url": "/shows/1",
+            "method": "GET",
+            "sortNum": 12500,
+            "created": "2022-10-08T07:53:58.573Z",
+            "modified": "2022-10-08T08:15:36.455Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "b926ed72-7c48-41c2-b338-5b692b91564f",
+            "colId": "722df8ee-8f6c-4d9f-86a3-457b7e517fd7",
+            "containerId": "",
+            "name": "Get Episodes",
+            "url": "/shows/1/episodes",
+            "method": "GET",
+            "sortNum": 13750,
+            "created": "2022-10-08T07:54:57.681Z",
+            "modified": "2022-10-08T08:15:42.750Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "5a52e635-e3e7-44aa-ba30-3940c0875e14",
+            "colId": "722df8ee-8f6c-4d9f-86a3-457b7e517fd7",
+            "containerId": "",
+            "name": "Get Show Seasons",
+            "url": "/shows/1/seasons",
+            "method": "GET",
+            "sortNum": 14375,
+            "created": "2022-10-08T08:00:21.883Z",
+            "modified": "2022-10-08T08:15:46.227Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "7d72fd9a-25bd-4563-83ab-dba7a348454c",
+            "colId": "722df8ee-8f6c-4d9f-86a3-457b7e517fd7",
+            "containerId": "",
+            "name": "Search",
+            "url": "/search/shows?q=Animation",
+            "method": "GET",
+            "sortNum": 14687.5,
+            "created": "2022-10-08T08:18:24.308Z",
+            "modified": "2022-10-08T08:40:07.706Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "q",
+                    "value": "Animation",
+                    "isPath": false
+                }
+            ],
+            "tests": []
+        },
+        {
+            "_id": "a10eddca-656a-4da8-ae76-8fc8c9add393",
+            "colId": "722df8ee-8f6c-4d9f-86a3-457b7e517fd7",
+            "containerId": "",
+            "name": "Search 7+ and sort",
+            "url": "/shows?Show[rating]=70&Show[sort]=7",
+            "method": "GET",
+            "sortNum": 14843.8,
+            "created": "2022-10-08T09:07:24.924Z",
+            "modified": "2022-10-08T09:15:30.266Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "Show[rating]",
+                    "value": "70",
+                    "isPath": false
+                },
+                {
+                    "name": "Show[sort]",
+                    "value": "7",
+                    "isPath": false
+                }
+            ],
+            "tests": []
+        },
+        {
+            "_id": "9f3203a4-2552-44f7-96d1-41bfa2eabe77",
+            "colId": "722df8ee-8f6c-4d9f-86a3-457b7e517fd7",
+            "containerId": "",
+            "name": "Error 404 Page Not Found",
+            "url": "//shows",
+            "method": "GET",
+            "sortNum": 15000,
+            "created": "2022-10-08T07:56:10.728Z",
+            "modified": "2022-10-08T08:15:51.340Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "39cd4170-9fd4-4413-a158-694ba9d2b121",
+            "colId": "722df8ee-8f6c-4d9f-86a3-457b7e517fd7",
+            "containerId": "",
+            "name": "Error 404 Data Not Found",
+            "url": "/shows/1241241",
+            "method": "GET",
+            "sortNum": 17500,
+            "created": "2022-10-08T07:57:22.997Z",
+            "modified": "2022-10-08T08:15:56.068Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        }
+    ],
+    "settings": {
+        "headers": [],
+        "tests": [],
+        "options": {
+            "baseUrl": "https://api.tvmaze.com"
+        }
+    }
+}
