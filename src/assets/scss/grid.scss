@@ -1,0 +1,21 @@
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+    display: flex;
+    flex-direction: column;
+}
+
+.row {
+    display: flex;
+    justify-content: start;
+    align-items: flex-start;
+}
+
+.col {
+    width: 100%;
+}
+
+.flex-grow {
+    flex-grow: 1;
+}

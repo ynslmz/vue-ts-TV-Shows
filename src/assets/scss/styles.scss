@@ -1,0 +1,13 @@
+@import "./reset"; // to reset preset values 
+@import "./variables"; // global variables
+@import "./grid";
+
+html {
+    font-family: sans-serif;
+    line-height: 1.15;
+    font-size:18px;
+}
+
+a {
+    text-decoration: none;
+}
