@@ -64,7 +64,7 @@ export default class ShowInfo extends Vue {}
     font-size: 0.7rem;
     color: $black;
     overflow: hidden;
-    text-overflow: ellipsis;
+    line-height: 1.25;
   }
 
   .btn-more {

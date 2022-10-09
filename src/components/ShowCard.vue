@@ -27,7 +27,6 @@ export default class ShowCard extends Vue {}
 <style lang="scss" scoped>
 .show-card {
   width: 220px;
-  margin: 0 $spacing-2;
   padding: $spacing-2;
   display: flex;
   justify-content: flex-start;
