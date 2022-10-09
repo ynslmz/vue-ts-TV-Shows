@@ -1,9 +1,7 @@
 import { createStore } from "vuex";
-
+import showModule from "./show.module";
 export default createStore({
-  state: {},
-  getters: {},
-  mutations: {},
-  actions: {},
-  modules: {},
+  modules: {
+    shows: showModule,
+  },
 });

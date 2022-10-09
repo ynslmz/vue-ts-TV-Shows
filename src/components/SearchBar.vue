@@ -42,6 +42,7 @@ export default class HomeView extends Vue {
     border: none;
     padding: $spacing-1 $spacing-4;
   }
+
   .button-search {
     width: 50px;
     border-width: 0;
@@ -50,8 +51,8 @@ export default class HomeView extends Vue {
     border-radius: 0 20px 20px 0;
     padding: $spacing-1;
     svg {
-      height: 25px;
-      width: 25px;
+      height: 22px;
+      width: 22px;
     }
   }
 }
