@@ -1,7 +1,7 @@
 import axios from "axios";
 
 export const client = axios.create({
-  baseURL: "https://api.tvmaze.com/",
+  baseURL: "https://api.tvmaze.com",
 });
 
 export function handleError(err: Error) {

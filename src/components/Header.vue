@@ -18,12 +18,20 @@
 <script lang="ts">
 import { Options, Vue } from "vue-class-component";
 import SearchBar from "@/components/SearchBar.vue";
+import { mapActions } from "vuex";
+import { ShowStore } from "@/store/show.module";
 @Options({
   components: { SearchBar },
+  methods: {
+    ...mapActions({
+      search: ShowStore.SEARCH_SHOW,
+    }),
+  },
 })
 export default class Header extends Vue {
+  declare search: (text: string) => void;
   searchPerformed(text: string) {
-    console.log(text);
+    this.search(text);
   }
 }
 </script>
