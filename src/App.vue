@@ -28,6 +28,7 @@ export default class App extends Vue {
   timer!: number;
 
   mounted() {
+    this.onResize();
     window.removeEventListener("resize", this.debounce);
     window.addEventListener("resize", this.debounce);
   }
