@@ -1,8 +1,11 @@
 <template>
   <div class="home">
-    {{ genres }}
-    <hr />
-    {{ shows }}
+    <ShowList
+      :genre="genre"
+      :shows="shows[genre]"
+      v-for="genre in genres"
+      :key="genre.toString().toLowerCase()"
+    />
   </div>
 </template>
 
@@ -10,9 +13,12 @@
 import { ShowStore } from "@/store/show.module";
 import { Options, Vue } from "vue-class-component";
 import { mapGetters } from "vuex";
+import ShowList from "@/components/ShowList.vue";
 
 @Options({
-  components: {},
+  components: {
+    ShowList,
+  },
   computed: {
     ...mapGetters({
       shows: ShowStore.GET_SHOWS,
@@ -22,3 +28,9 @@ import { mapGetters } from "vuex";
 })
 export default class HomeView extends Vue {}
 </script>
+
+<style lang="scss" scoped>
+.home {
+  padding: $spacing-6 0;
+}
+</style>

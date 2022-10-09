@@ -47,19 +47,24 @@ export const mutations: MutationTree<ShowStoreModel> = {
 };
 export const getters: GetterTree<ShowStoreModel, unknown> = {
   [ShowStore.GET_GENRES](state) {
-    return state.genres;
+    return state.genres.sort();
   },
   [ShowStore.GET_SHOWS](state) {
     return state.showsObject;
   },
 };
 export const actions: ActionTree<ShowStoreModel, unknown> = {
-  async [ShowStore.LOAD_SHOWS]({ commit, dispatch }) {
-    commit(ShowStore.SET_LOADING, true);
-    const response = await ShowService.getShows();
-    if (response?.data && response.data.length > 0) {
-      commit(ShowStore.SET_SHOWS, response.data);
-      dispatch(ShowStore.COMPUTE_SHOW_DATA, response.data);
+  async [ShowStore.LOAD_SHOWS]({ state, commit, dispatch }) {
+    if (state.shows.length > 0) {
+      /// I dont want to load everytime
+      return;
+    } else {
+      commit(ShowStore.SET_LOADING, true);
+      const response = await ShowService.getShows();
+      if (response?.data && response.data.length > 0) {
+        commit(ShowStore.SET_SHOWS, response.data);
+        dispatch(ShowStore.COMPUTE_SHOW_DATA, response.data);
+      }
     }
   },
 
