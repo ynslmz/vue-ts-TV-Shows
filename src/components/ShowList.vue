@@ -1,6 +1,16 @@
 <template>
   <div class="show-list">
-    <h3 class="genre">{{ genre }}</h3>
+    <div class="genre">
+      <h3 class="title">
+        {{ genre }}
+      </h3>
+      <span class="count">{{
+        `(${activeIndex + 1} to ${Math.min(
+          maxShowableItem + activeIndex,
+          shows.length
+        )} of ${shows.length} )`
+      }}</span>
+    </div>
     <div class="show-wrapper" ref="wrapper">
       <button class="btn btn-left" @click="nextItems(-1)" v-show="showButtons">
         &lt;
@@ -53,6 +63,8 @@ export default class ShowList extends Vue {
     return Math.floor(this.containerWidth / 230);
   }
 
+  /// see the elements for big lists
+
   get showList() {
     let list = [...this.shows].slice(
       this.activeIndex,
@@ -82,10 +94,18 @@ export default class ShowList extends Vue {
   margin-bottom: $spacing-3;
 
   .genre {
+    display: flex;
     color: $green;
-    font-size: 1.5rem;
     font-weight: 700;
     padding: $spacing-3;
+    .title {
+      flex-grow: 1;
+      font-size: 1.5rem;
+      font-family: $title-font;
+    }
+    .count {
+      font-family: $text-font;
+    }
   }
   .show-wrapper {
     position: relative;
