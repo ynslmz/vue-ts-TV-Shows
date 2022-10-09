@@ -21,7 +21,7 @@ import SearchBar from "@/components/SearchBar.vue";
 @Options({
   components: { SearchBar },
 })
-export default class HomeView extends Vue {
+export default class Header extends Vue {
   searchPerformed(text: string) {
     console.log(text);
   }

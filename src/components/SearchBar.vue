@@ -23,7 +23,7 @@ import SearchIcon from "@/components/SearchIcon.vue";
 @Options({
   components: { SearchIcon },
 })
-export default class HomeView extends Vue {
+export default class SearchBar extends Vue {
   searchText = "";
 }
 </script>
