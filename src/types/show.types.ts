@@ -1,3 +1,7 @@
+export interface ShowObject {
+  [key: string]: Show[];
+}
+
 export interface Show {
   id: number;
   url: string;

@@ -1,11 +1,13 @@
 <template>
   <div class="home">
+    {{ genres }}
+    <hr />
     {{ shows }}
   </div>
 </template>
 
 <script lang="ts">
-import { GET_SHOWS } from "@/store/showModule.types";
+import { ShowStore } from "@/store/show.module";
 import { Options, Vue } from "vue-class-component";
 import { mapGetters } from "vuex";
 
@@ -13,7 +15,8 @@ import { mapGetters } from "vuex";
   components: {},
   computed: {
     ...mapGetters({
-      shows: GET_SHOWS,
+      shows: ShowStore.GET_SHOWS,
+      genres: ShowStore.GET_GENRES,
     }),
   },
 })
