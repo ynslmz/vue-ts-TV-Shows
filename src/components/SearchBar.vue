@@ -20,7 +20,7 @@
 
 <script lang="ts">
 import { Options, Vue } from "vue-class-component";
-import SearchIcon from "@/components/SearchIcon.vue";
+import SearchIcon from "@/components/icons/SearchIcon.vue";
 @Options({
   components: { SearchIcon },
 })

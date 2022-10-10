@@ -9,8 +9,8 @@
 </template>
 <script lang="ts">
 import { Options, Vue } from "vue-class-component";
-import Header from "@/components/Header.vue";
-import Loading from "@/components/Loading.vue";
+import Header from "@/components/common/Header.vue";
+import Loading from "@/components/common/Loading.vue";
 import { mapActions, mapGetters } from "vuex";
 import { RootStore } from "./store";
 import { ShowStore } from "./store/show.module";

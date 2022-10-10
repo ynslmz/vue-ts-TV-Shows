@@ -71,8 +71,6 @@ export default class ShowList extends Vue {
     return Math.floor(this.containerWidth / 230);
   }
 
-  /// see the elements for big lists
-
   get showList() {
     let list = [...this.shows].slice(
       this.activeIndex,

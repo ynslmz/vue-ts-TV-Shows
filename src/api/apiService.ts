@@ -5,7 +5,8 @@ export const client = axios.create({
 });
 
 export function handleError(err: Error) {
-  // Handle as you wish
+  // Handle as you wish, push to sentry etc.
+  // Or warn user there is something wrong but it's not you...
   throw new Error(`Axios Api Error ${err}`);
 }
 

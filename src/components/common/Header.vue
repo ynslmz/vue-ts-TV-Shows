@@ -49,6 +49,7 @@ export default class Header extends Vue {
     return this.searchResults.length || this.searched;
   }
 
+  // We can also apply debounce here up to needs
   searchPerformed(text: string) {
     if (text.length > 2) {
       this.search(text);
@@ -57,7 +58,7 @@ export default class Header extends Vue {
   }
 
   clearSearch() {
-    /// to wait to perform if there is an action
+    /// to wait before destroy to perform if there is an action
     setTimeout(() => {
       this.searched = false;
       this.search("");

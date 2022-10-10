@@ -32,8 +32,7 @@ export default class Loading extends Vue {}
   background: transparent;
 }
 
-/// copy-right https://loading.io/css/
-
+/// I copied this from https://loading.io/css/ did not create myself
 .lds-grid {
   display: inline-block;
   position: relative;

@@ -27,7 +27,6 @@ describe("ShowInfo.vue", () => {
 
   it("should list genres", () => {
     const wrapper = createWrapper();
-    console.log(wrapper.text());
     expect(wrapper.text()).toMatch(showObject.genres[2]);
   });
 });
