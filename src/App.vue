@@ -1,17 +1,28 @@
 <template>
-  <Header />
-  <div class="container" ref="container">
-    <router-view />
+  <div class="wrapper">
+    <Header />
+    <div class="container" ref="container">
+      <router-view />
+    </div>
+    <Loading v-if="getLoading" />
   </div>
 </template>
 <script lang="ts">
 import { Options, Vue } from "vue-class-component";
 import Header from "@/components/Header.vue";
-import { mapActions } from "vuex";
+import Loading from "@/components/Loading.vue";
+import { mapActions, mapGetters } from "vuex";
 import { RootStore } from "./store";
+import { ShowStore } from "./store/show.module";
 @Options({
   components: {
     Header,
+    Loading,
+  },
+  computed: {
+    ...mapGetters({
+      getLoading: ShowStore.GET_LOADING,
+    }),
   },
   methods: {
     ...mapActions({
@@ -55,5 +66,3 @@ export default class App extends Vue {
   }
 }
 </script>
-
-<style lang="scss"></style>

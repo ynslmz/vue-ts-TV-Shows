@@ -16,6 +16,7 @@ export enum ShowStore {
   GET_SHOWS = "GET_SHOWS",
   GET_SEARCH_RESULTS = "GET_SEARCH_RESULTS",
   GET_SHOW_DETAILS = "GET_SHOW_DETAILS",
+  GET_LOADING = "GET_LOADING",
 
   //Actions
   LOAD_SHOWS = "LOAD_SHOWS",
@@ -78,6 +79,9 @@ export const getters: GetterTree<ShowStoreModel, unknown> = {
   },
   [ShowStore.GET_SHOW_DETAILS](state) {
     return state.showDetail;
+  },
+  [ShowStore.GET_LOADING](state) {
+    return state.loading;
   },
 };
 export const actions: ActionTree<ShowStoreModel, unknown> = {
