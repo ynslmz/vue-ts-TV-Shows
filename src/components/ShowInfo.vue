@@ -2,12 +2,12 @@
   <div class="show-info">
     <p class="title">
       {{ show.name }}
-      <span class="badge" v-if="show.rating.average">{{
-        show.rating.average
-      }}</span>
     </p>
 
     <div class="genres">
+      <span class="badge" v-if="show.rating.average">{{
+        show.rating.average
+      }}</span>
       <span class="badge" v-for="gnr in show.genres" :key="gnr" v-text="gnr" />
     </div>
     <p class="summary" v-html="show.summary"></p>

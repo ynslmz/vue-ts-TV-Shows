@@ -61,7 +61,7 @@ export default class Header extends Vue {
     setTimeout(() => {
       this.searched = false;
       this.search("");
-    }, 100);
+    }, 300);
   }
 }
 </script>

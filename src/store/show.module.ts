@@ -9,17 +9,23 @@ export enum ShowStore {
   SET_SHOWS_OBJECT = "SET_SHOWS_OBJECT",
   SET_GENRES = "SET_GENRES",
   SET_SEARCH_RESULT = "SET_SEARCH_RESULT",
+  SET_SHOW_DETAILS = "SET_SHOW_DETAILS",
+
   // Getters
   GET_GENRES = "GET_GENRES",
   GET_SHOWS = "GET_SHOWS",
   GET_SEARCH_RESULTS = "GET_SEARCH_RESULTS",
+  GET_SHOW_DETAILS = "GET_SHOW_DETAILS",
+
   //Actions
   LOAD_SHOWS = "LOAD_SHOWS",
   COMPUTE_SHOW_DATA = "COMPUTE_SHOW_DATA",
   SEARCH_SHOW = "SEARCH_SHOW",
+  LOAD_SHOW_DETAILS = "LOAD_SHOW_DETAILS",
 }
 
 export interface ShowStoreModel {
+  showDetail: Show | null;
   genres: string[];
   shows: Show[];
   showsObject: ShowObject;
@@ -33,6 +39,7 @@ const initialState = {
   loading: false,
   showsObject: {},
   searchResults: [],
+  showDetail: null,
 };
 
 export const state = { ...initialState };
@@ -55,6 +62,9 @@ export const mutations: MutationTree<ShowStoreModel> = {
   ) {
     state.searchResults = payload;
   },
+  [ShowStore.SET_SHOW_DETAILS](state, payload) {
+    state.showDetail = payload;
+  },
 };
 export const getters: GetterTree<ShowStoreModel, unknown> = {
   [ShowStore.GET_GENRES](state) {
@@ -65,6 +75,9 @@ export const getters: GetterTree<ShowStoreModel, unknown> = {
   },
   [ShowStore.GET_SEARCH_RESULTS](state) {
     return state.searchResults;
+  },
+  [ShowStore.GET_SHOW_DETAILS](state) {
+    return state.showDetail;
   },
 };
 export const actions: ActionTree<ShowStoreModel, unknown> = {
@@ -107,6 +120,15 @@ export const actions: ActionTree<ShowStoreModel, unknown> = {
     const response = await ShowService.getSearchResults(searchTerm);
     if (response?.data) {
       commit(ShowStore.SET_SEARCH_RESULT, response.data);
+    }
+    commit(ShowStore.SET_LOADING, false);
+  },
+
+  async [ShowStore.LOAD_SHOW_DETAILS]({ commit }, id) {
+    commit(ShowStore.SET_LOADING, true);
+    const response = await ShowService.getShowDetail(id);
+    if (response?.data) {
+      commit(ShowStore.SET_SHOW_DETAILS, response.data);
     }
     commit(ShowStore.SET_LOADING, false);
   },
