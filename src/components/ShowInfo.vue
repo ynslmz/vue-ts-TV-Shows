@@ -1,7 +1,12 @@
 <template>
   <div class="show-info">
-    <p class="title">{{ show.name }}</p>
-    <p class="year">{{}}</p>
+    <p class="title">
+      {{ show.name }}
+      <span class="badge" v-if="show.rating.average">{{
+        show.rating.average
+      }}</span>
+    </p>
+
     <div class="genres">
       <span class="badge" v-for="gnr in show.genres" :key="gnr" v-text="gnr" />
     </div>
@@ -38,6 +43,7 @@ export default class ShowInfo extends Vue {}
     font-size: 1.2rem;
     padding: $spacing-1;
     text-align: left;
+    vertical-align: middle;
   }
 
   .genres {

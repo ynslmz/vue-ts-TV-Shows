@@ -86,7 +86,7 @@ export const actions: ActionTree<ShowStoreModel, unknown> = {
     const genres = new Set();
     const showsObject: ShowObject = {};
     data
-      .sort((a, b) => (a.rating.average || 0) - (b.rating.average || 0)) // Sort by rating
+      .sort((a, b) => (b.rating.average || 0) - (a.rating.average || 0))
       .forEach((show) => {
         show.genres.forEach((genre) => {
           genres.add(genre);

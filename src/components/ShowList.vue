@@ -12,7 +12,11 @@
       }}</span>
     </div>
     <div class="show-wrapper" ref="wrapper">
-      <button class="btn btn-left" @click="nextItems(-1)" v-show="showButtons">
+      <button
+        class="btn btn-left"
+        @click="nextItems(-1)"
+        v-show="showButtons && activeIndex - maxShowableItem >= 0"
+      >
         &lt;
       </button>
       <div class="show-scroller">
@@ -20,7 +24,11 @@
           <ShowCard :show="show" v-for="show in showList" :key="show.id" />
         </TransitionGroup>
       </div>
-      <button class="btn btn-right" @click="nextItems(1)" v-show="showButtons">
+      <button
+        class="btn btn-right"
+        @click="nextItems(1)"
+        v-show="showButtons && activeIndex + maxShowableItem < shows.length"
+      >
         &gt;
       </button>
     </div>
@@ -125,19 +133,23 @@ export default class ShowList extends Vue {
       padding: $spacing-2;
       font-size: 1.3rem;
       font-weight: 500;
+      font-family: $text-font;
       top: 50%;
       z-index: 50;
       height: 50px;
       width: 50px;
+      opacity: 0.95;
 
       text-align: center;
 
       &-left {
         left: 0;
+        top: 40%;
       }
 
       &-right {
         right: 0;
+        top: 40%;
       }
     }
   }

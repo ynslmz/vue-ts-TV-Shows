@@ -6,8 +6,8 @@
       <p class="badge" v-if="item.rating.average">
         {{ Number(item.rating.average).toFixed(1) }}
       </p>
-    </div></router-link
-  >
+    </div>
+  </router-link>
 </template>
 
 <script lang="ts">
