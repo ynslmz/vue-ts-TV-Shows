@@ -9,7 +9,7 @@
         </div>
         <div class="col flex-grow text-right align-self-center search">
           <SearchBar
-            @searched="searchPerformed"
+            @searched="debouncedSearch"
             @blured="clearSearch"
             class="search-input"
           />
@@ -27,6 +27,7 @@ import SearchList from "@/components/SearchList.vue";
 import { mapActions, mapGetters } from "vuex";
 import { ShowStore } from "@/store/show.module";
 import { SearchResult } from "@/types/show.types";
+import { debounce } from "@/helpers/debounce";
 @Options({
   components: { SearchBar, SearchList },
   methods: {
@@ -49,7 +50,10 @@ export default class Header extends Vue {
     return this.searchResults.length || this.searched;
   }
 
-  // We can also apply debounce here up to needs
+  debouncedSearch(text: string) {
+    return debounce(() => this.searchPerformed(text), 200);
+  }
+
   searchPerformed(text: string) {
     if (text.length > 2) {
       this.search(text);
@@ -58,7 +62,7 @@ export default class Header extends Vue {
   }
 
   clearSearch() {
-    /// to wait before destroy to perform if there is an action
+    /// to wait before destroy to perform if there is an action (click link etc)
     setTimeout(() => {
       this.searched = false;
       this.search("");

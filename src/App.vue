@@ -14,6 +14,7 @@ import Loading from "@/components/common/Loading.vue";
 import { mapActions, mapGetters } from "vuex";
 import { RootStore } from "./store";
 import { ShowStore } from "./store/show.module";
+import { debounce } from "@/helpers/debounce";
 @Options({
   components: {
     Header,
@@ -35,33 +36,20 @@ export default class App extends Vue {
     container: HTMLElement;
   };
   declare saveContainerWidth: (width: number) => void;
-  containerWidth = 0;
-  timer!: number;
 
   mounted() {
     this.onResize();
-    window.removeEventListener("resize", this.debounce);
-    window.addEventListener("resize", this.debounce);
+    window.removeEventListener("resize", this.debounced);
+    window.addEventListener("resize", this.debounced);
   }
 
-  /// a simple debounce
-  debounce() {
-    if (this.timer) {
-      clearTimeout(this.timer);
-      this.timer = setTimeout(() => {
-        this.onResize();
-      }, 200);
-    } else {
-      this.timer = setTimeout(() => {
-        this.onResize();
-      }, 200);
-    }
+  debounced() {
+    return debounce(() => this.onResize(), 200);
   }
 
   onResize() {
-    if (this.containerWidth !== this.$refs.container.clientWidth) {
+    if (this.$refs.container.clientWidth) {
       this.saveContainerWidth(this.$refs.container.clientWidth);
-      this.containerWidth = this.$refs.container.clientWidth;
     }
   }
 }
