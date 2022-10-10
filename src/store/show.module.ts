@@ -1,5 +1,5 @@
 import { ShowService } from "@/api/showService";
-import { SearchResults, Show, ShowObject } from "@/types/show.types";
+import { SearchResult, Show, ShowObject } from "@/types/show.types";
 import { ActionTree, GetterTree, Module, MutationTree } from "vuex";
 
 export enum ShowStore {
@@ -24,7 +24,7 @@ export interface ShowStoreModel {
   shows: Show[];
   showsObject: ShowObject;
   loading: boolean;
-  searchResults: SearchResults[];
+  searchResults: SearchResult[];
 }
 
 const initialState = {
@@ -51,7 +51,7 @@ export const mutations: MutationTree<ShowStoreModel> = {
   },
   [ShowStore.SET_SEARCH_RESULT](
     state: ShowStoreModel,
-    payload: SearchResults[]
+    payload: SearchResult[]
   ) {
     state.searchResults = payload;
   },
@@ -105,7 +105,7 @@ export const actions: ActionTree<ShowStoreModel, unknown> = {
   async [ShowStore.SEARCH_SHOW]({ commit }, searchTerm: string) {
     commit(ShowStore.SET_LOADING, true);
     const response = await ShowService.getSearchResults(searchTerm);
-    if (response?.data && response.data.length > 0) {
+    if (response?.data) {
       commit(ShowStore.SET_SEARCH_RESULT, response.data);
     }
     commit(ShowStore.SET_LOADING, false);

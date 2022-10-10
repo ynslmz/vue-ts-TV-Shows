@@ -5,7 +5,8 @@
       type="text"
       placeholder="Search"
       v-model="searchText"
-      @keyup.enter="$emit('searched', searchText)"
+      @keyup="$emit('searched', searchText)"
+      @blur="onBlur"
     />
     <button
       class="button-search"
@@ -25,6 +26,10 @@ import SearchIcon from "@/components/SearchIcon.vue";
 })
 export default class SearchBar extends Vue {
   searchText = "";
+  onBlur() {
+    this.$emit("blured");
+    this.searchText = "";
+  }
 }
 </script>
 <style lang="scss" scoped>

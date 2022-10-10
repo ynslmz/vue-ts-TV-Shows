@@ -78,16 +78,12 @@ export interface Network {
   officialSite: null | string;
 }
 
-export interface Rating {
-  average: number | null;
-}
-
 export interface Schedule {
   time: string;
   days: string[];
 }
 
-export interface SearchResults {
+export interface SearchResult {
   score: number;
   show: Show;
 }

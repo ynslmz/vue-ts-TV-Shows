@@ -44,17 +44,6 @@ export default class ShowInfo extends Vue {}
     padding: $spacing-1 0;
     display: flex;
     flex-wrap: wrap;
-    .badge {
-      font-size: 0.5rem;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      background-color: $green;
-      color: $yellow;
-      padding: $spacing-1;
-      border-radius: $spacing-1;
-      margin: $spacing-1;
-    }
   }
 
   .summary {
