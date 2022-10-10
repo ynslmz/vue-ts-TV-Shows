@@ -116,6 +116,10 @@ export const actions: ActionTree<ShowStoreModel, unknown> = {
   },
 
   async [ShowStore.SEARCH_SHOW]({ commit }, searchTerm: string) {
+    if (searchTerm === "") {
+      commit(ShowStore.SET_SEARCH_RESULT, []);
+      return;
+    }
     commit(ShowStore.SET_LOADING, true);
     const response = await ShowService.getSearchResults(searchTerm);
     if (response?.data) {
