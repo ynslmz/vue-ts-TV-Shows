@@ -9,19 +9,17 @@
 
 <script lang="ts">
 import ShowInfo from "@/components/ShowInfo.vue";
+import { Show } from "@/types/show.types";
 import { Options, Vue } from "vue-class-component";
+import { Prop } from "vue-property-decorator";
 @Options({
   components: {
     ShowInfo,
   },
-  props: {
-    show: {
-      type: Object,
-      required: true,
-    },
-  },
 })
-export default class ShowCard extends Vue {}
+export default class ShowCard extends Vue {
+  @Prop({ required: true }) show!: Show;
+}
 </script>
 
 <style lang="scss" scoped>

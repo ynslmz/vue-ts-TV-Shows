@@ -40,18 +40,9 @@ import ShowCard from "@/components/ShowCard.vue";
 import { mapGetters } from "vuex";
 import { RootStore } from "@/store";
 import { Show } from "@/types/show.types";
+import { Prop } from "vue-property-decorator";
 @Options({
   components: { ShowCard },
-  props: {
-    genre: {
-      type: String,
-      required: false,
-    },
-    shows: {
-      type: Array,
-      required: true,
-    },
-  },
   computed: {
     ...mapGetters({
       containerWidth: RootStore.GET_CONTAINER_WIDTH,
@@ -59,10 +50,12 @@ import { Show } from "@/types/show.types";
   },
 })
 export default class ShowList extends Vue {
+  @Prop({ required: true }) genre!: string;
+  @Prop({ required: true }) shows!: Show[];
+
   declare $refs: {
     wrapper: HTMLElement;
   };
-  declare shows: Show[];
   declare containerWidth: number;
 
   activeIndex = 0;

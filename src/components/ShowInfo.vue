@@ -18,16 +18,13 @@
 </template>
 
 <script lang="ts">
-import { Options, Vue } from "vue-class-component";
-@Options({
-  props: {
-    show: {
-      type: Object,
-      required: true,
-    },
-  },
-})
-export default class ShowInfo extends Vue {}
+import { Show } from "@/types/show.types";
+import { Vue } from "vue-class-component";
+import { Prop } from "vue-property-decorator";
+
+export default class ShowInfo extends Vue {
+  @Prop({ required: true }) show!: Show;
+}
 </script>
 
 <style lang="scss" scoped>
