@@ -37,6 +37,10 @@ export default class App extends Vue {
   };
   declare saveContainerWidth: (width: number) => void;
 
+  created() {
+    document.title = "TV SHOWS";
+  }
+
   mounted() {
     this.onResize();
     window.removeEventListener("resize", this.debounced);
