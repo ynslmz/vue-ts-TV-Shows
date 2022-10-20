@@ -51,7 +51,6 @@ export default class App extends Vue {
   }
 
   onResize() {
-    console.log("triggerred!", new Date().valueOf());
     if (this.$refs.container.clientWidth) {
       this.saveContainerWidth(this.$refs.container.clientWidth);
     }
