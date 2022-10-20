@@ -5,10 +5,9 @@
         {{ genre }}
       </h3>
       <span class="count">{{
-        `(${activeIndex + 1} to ${Math.min(
-          maxShowableItem + activeIndex,
+        `(${activeIndex + 1} to ${maxShowableItem + activeIndex} of ${
           shows.length
-        )} of ${shows.length} )`
+        } )`
       }}</span>
     </div>
     <div class="show-wrapper" ref="wrapper">
@@ -67,17 +66,6 @@ export default class ShowList extends Vue {
 
   get showScrollerStyle() {
     return { width: this.shows.length * 230 + "px" };
-  }
-
-  nextItems(direction: 1 | -1 = 1) {
-    let nextStart = this.activeIndex + this.maxShowableItem * direction;
-    if (nextStart <= 0) {
-      this.activeIndex = 0;
-    } else if (nextStart >= this.shows.length) {
-      this.activeIndex = this.shows.length - this.maxShowableItem;
-    } else {
-      this.activeIndex = nextStart;
-    }
   }
 
   resize() {
