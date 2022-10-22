@@ -1,6 +1,6 @@
 <template>
   <div class="row detail">
-    <div class="col">
+    <div class="col" v-if="showDetail.image">
       <img
         class="img"
         :src="showDetail.image.original"

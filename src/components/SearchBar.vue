@@ -1,20 +1,14 @@
 <template>
   <div class="input-group">
+    <SearchIcon class="icon" />
     <input
       class="input-search"
       type="text"
       placeholder="Search"
       v-model="searchText"
-      @keyup="$emit('searched', searchText)"
+      @input="$emit('searched', searchText)"
       @blur="onBlur"
     />
-    <button
-      class="button-search"
-      type="button"
-      @click="$emit('searched', searchText)"
-    >
-      <SearchIcon />
-    </button>
   </div>
 </template>
 
@@ -39,26 +33,22 @@ export default class SearchBar extends Vue {
   align-items: stretch;
   height: 40px;
   width: 100%;
+  position: relative;
 
   .input-search {
     flex-grow: 1;
     width: 75%;
-    border-radius: 20px 0 0 20px;
+    border-radius: 20px;
     border: none;
-    padding: $spacing-1 $spacing-4;
+    padding: $spacing-1 $spacing-4 $spacing-1 $spacing-8;
   }
 
-  .button-search {
-    width: 50px;
-    border-width: 0;
-    background-color: $yellow-light;
-    color: $green-dark;
-    border-radius: 0 20px 20px 0;
-    padding: $spacing-1;
-    svg {
-      height: 22px;
-      width: 22px;
-    }
+  .icon {
+    position: absolute;
+    top: $spacing-2;
+    left: $spacing-2;
+    height: 22px;
+    width: 22px;
   }
 }
 </style>
