@@ -5,9 +5,10 @@
         {{ genre }}
       </h3>
       <span class="count">{{
-        `(${activeIndex + 1} to ${maxShowableItem + activeIndex} of ${
+        `(${activeIndex + 1} to ${Math.min(
+          maxShowableItem + activeIndex,
           shows.length
-        } )`
+        )} of ${shows.length} )`
       }}</span>
     </div>
     <div class="show-wrapper" ref="wrapper">
