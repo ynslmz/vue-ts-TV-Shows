@@ -11,23 +11,17 @@
       <span class="badge" v-for="gnr in show.genres" :key="gnr" v-text="gnr" />
     </div>
     <p class="summary" v-html="show.summary"></p>
-    <button class="btn-more" @click="$router.push(`/details/${show.id}`)">
-      More...
-    </button>
   </div>
 </template>
 
 <script lang="ts">
-import { Options, Vue } from "vue-class-component";
-@Options({
-  props: {
-    show: {
-      type: Object,
-      required: true,
-    },
-  },
-})
-export default class ShowInfo extends Vue {}
+import { Show } from "@/types/show.types";
+import { Vue } from "vue-class-component";
+import { Prop } from "vue-property-decorator";
+
+export default class ShowInfo extends Vue {
+  @Prop({ required: true }) show!: Show;
+}
 </script>
 
 <style lang="scss" scoped>
@@ -60,19 +54,6 @@ export default class ShowInfo extends Vue {}
     color: $black;
     overflow: hidden;
     line-height: 1.25;
-  }
-
-  .btn-more {
-    background: $yellow;
-    color: $green;
-    padding: $spacing-2;
-    border: none;
-    border-radius: $spacing-1;
-    font-weight: 600;
-    align-self: flex-end;
-    &:hover {
-      background: $yellow-dark;
-    }
   }
 }
 </style>

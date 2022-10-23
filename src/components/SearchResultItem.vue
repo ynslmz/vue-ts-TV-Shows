@@ -11,15 +11,13 @@
 </template>
 
 <script lang="ts">
-import { Options, Vue } from "vue-class-component";
-@Options({
-  props: {
-    item: {
-      type: Object,
-    },
-  },
-})
-export default class SearchResultItem extends Vue {}
+import { SearchResult } from "@/types/show.types";
+import { Vue } from "vue-class-component";
+import { Prop } from "vue-property-decorator";
+
+export default class SearchResultItem extends Vue {
+  @Prop({ requeired: true }) item!: SearchResult;
+}
 </script>
 <style lang="scss" scoped>
 .search-result-item {

@@ -12,17 +12,17 @@
 </template>
 
 <script lang="ts">
-import { Options, Vue } from "vue-class-component";
+import { Prop } from "vue-property-decorator";
+
 import SearchResultItem from "@/components/SearchResultItem.vue";
+import { SearchResult } from "@/types/show.types";
+import { Vue, Options } from "vue-class-component";
 @Options({
   components: { SearchResultItem },
-  props: {
-    list: {
-      type: Array,
-    },
-  },
 })
-export default class SearchList extends Vue {}
+export default class SearchList extends Vue {
+  @Prop({ required: true }) list!: SearchResult[];
+}
 </script>
 <style lang="scss" scoped>
 .search-list {

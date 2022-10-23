@@ -4,7 +4,7 @@
       <div class="row">
         <div class="col">
           <h1>
-            <router-link to="/" class="home-link">ABN TV MAZE</router-link>
+            <router-link to="/" class="home-link">TV MAZE</router-link>
           </h1>
         </div>
         <div class="col flex-grow text-right align-self-center search">
@@ -51,7 +51,7 @@ export default class Header extends Vue {
   }
 
   debouncedSearch(text: string) {
-    return debounce(() => this.searchPerformed(text), 200);
+    return debounce(() => this.searchPerformed(text), 300);
   }
 
   searchPerformed(text: string) {
