@@ -1,7 +1,7 @@
 <template>
   <router-link :to="`/details/${item.id}`">
     <div class="search-result-item">
-      <img class="img" :src="item.image?.medium" :alt="item.name" />
+      <img class="img" :src="image" :alt="item.name" />
       <p class="title">{{ item.name }}</p>
       <p class="badge" v-if="item.rating.average">
         {{ Number(item.rating.average).toFixed(1) }}
@@ -11,12 +11,18 @@
 </template>
 
 <script lang="ts">
-import { SearchResult } from "@/types/show.types";
+import { Show } from "@/types/show.types";
 import { Vue } from "vue-class-component";
 import { Prop } from "vue-property-decorator";
 
 export default class SearchResultItem extends Vue {
-  @Prop({ requeired: true }) item!: SearchResult;
+  @Prop({ requeired: true }) item!: Show;
+  get image() {
+    return (
+      this.item.image?.medium ||
+      "https://via.placeholder.com/210x295?text=No image"
+    );
+  }
 }
 </script>
 <style lang="scss" scoped>

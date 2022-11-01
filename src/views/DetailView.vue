@@ -1,11 +1,7 @@
 <template>
   <div class="row detail">
-    <div class="col" v-if="showDetail.image">
-      <img
-        class="img"
-        :src="showDetail.image.original"
-        :alt="showDetail.name"
-      />
+    <div class="col">
+      <img class="img" :src="showImageUrl" :alt="showDetail.name" />
     </div>
     <div class="col">
       <h2 class="show-title">
@@ -52,6 +48,7 @@
 </template>
 <script lang="ts">
 import { ShowStore } from "@/store/show.module";
+import { Show } from "@/types/show.types";
 import { Options, Vue } from "vue-class-component";
 import { mapGetters } from "vuex";
 
@@ -66,7 +63,15 @@ import { mapGetters } from "vuex";
     next();
   },
 })
-export default class DetailView extends Vue {}
+export default class DetailView extends Vue {
+  showDetail!: Show;
+  get showImageUrl() {
+    return (
+      this.showDetail.image?.original ||
+      "https://via.placeholder.com/768x960?text=Show doesn't have image"
+    );
+  }
+}
 </script>
 
 <style lang="scss" scoped>

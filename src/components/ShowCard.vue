@@ -1,7 +1,7 @@
 <template>
   <div class="show-card" :id="`show-${show.id}`" :data-id="show.id">
     <div class="image-container">
-      <img class="image" :src="show.image.medium" :alt="show.name" />
+      <img class="image" :src="imageUrl" :alt="show.name" />
     </div>
     <ShowInfo :show="show" />
   </div>
@@ -19,6 +19,13 @@ import { Prop } from "vue-property-decorator";
 })
 export default class ShowCard extends Vue {
   @Prop({ required: true }) show!: Show;
+
+  get imageUrl() {
+    return (
+      this.show.image?.medium ||
+      "https://via.placeholder.com/210x295?text=No image"
+    );
+  }
 }
 </script>
 
