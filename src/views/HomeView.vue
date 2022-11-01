@@ -48,8 +48,8 @@ export default class HomeView extends Vue {
   mounted() {
     this.loadItem();
     this.observer = new IntersectionObserver(this.intersectionCallback);
-    const element = document.querySelector("#load_more")!;
-    this.observer.observe(element);
+    const element = document.querySelector("#load_more");
+    if (element) this.observer.observe(element);
   }
 
   intersectionCallback(entries: IntersectionObserverEntry[]) {

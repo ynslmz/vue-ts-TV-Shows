@@ -69,9 +69,11 @@ export default class ShowList extends Vue {
     return { width: this.shows.length * 230 + "px" };
   }
 
-  showClicked(e: any) {
+  showClicked(e: Event) {
     // Event delegate
-    const showId = e.target?.closest("div.show-card").dataset.id || null;
+    const showId =
+      (e.target as Element).closest<HTMLElement>("div.show-card")?.dataset.id ||
+      null;
     if (showId) {
       this.$router.push(`/details/${showId}`);
     }
