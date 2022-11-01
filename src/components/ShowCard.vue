@@ -1,5 +1,5 @@
 <template>
-  <div class="show-card" @click="$router.push(`/details/${show.id}`)">
+  <div class="show-card" :id="`show-${show.id}`" :data-id="show.id">
     <div class="image-container">
       <img class="image" :src="show.image.medium" :alt="show.name" />
     </div>

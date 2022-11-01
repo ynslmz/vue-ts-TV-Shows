@@ -13,7 +13,7 @@
     </div>
     <div class="show-wrapper" ref="wrapper">
       <div class="show-scroller" :style="showScrollerStyle">
-        <div class="shows" ref="showsContainer">
+        <div class="shows" ref="showsContainer" @click="showClicked">
           <TransitionGroup name="show-card">
             <ShowCard :show="show" v-for="show in showList" :key="show.id" />
           </TransitionGroup>
@@ -67,6 +67,14 @@ export default class ShowList extends Vue {
 
   get showScrollerStyle() {
     return { width: this.shows.length * 230 + "px" };
+  }
+
+  showClicked(e: any) {
+    // Event delegate
+    const showId = e.target?.closest("div.show-card").dataset.id || null;
+    if (showId) {
+      this.$router.push(`/details/${showId}`);
+    }
   }
 
   resize() {
