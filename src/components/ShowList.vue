@@ -101,7 +101,7 @@ export default class ShowList extends Vue {
 
   .genre {
     display: flex;
-    color: $green;
+    color: $primary;
     font-weight: 700;
     padding: $spacing-3;
     .title {

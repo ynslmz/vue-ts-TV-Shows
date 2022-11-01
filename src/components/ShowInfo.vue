@@ -33,7 +33,7 @@ export default class ShowInfo extends Vue {
   height: 300px;
 
   .title {
-    color: $green-dark;
+    color: $primary-dark;
     font-size: 1.2rem;
     padding: $spacing-1;
     text-align: left;

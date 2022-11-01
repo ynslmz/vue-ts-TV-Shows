@@ -79,6 +79,6 @@ export default class HomeView extends Vue {
   text-transform: uppercase;
   text-align: center;
   font-size: 1rem;
-  color: $green-dark;
+  color: $primary-dark;
 }
 </style>

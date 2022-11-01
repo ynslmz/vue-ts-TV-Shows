@@ -1,15 +1,16 @@
 // colors
-$white: #ffffff;
-$green-dark: #005e5d;
-$green: #00716b;
-$green-light: #17928c;
-$yellow: #ffd200;
-$yellow-light: #ffe263;
-$yellow-dark: #e8bf2b;
+$white: #F5EFE6;
+$gray: #edede9;
+$primary: #1C3879;
 $black: #222222;
+$secondary: #362626;
+$primary-dark: scale-color($primary, $lightness: -20%);
+$primary-light: scale-color($primary, $lightness: 20%);
+$secondary-dark: scale-color($secondary, $lightness: -20%);
+$secondary-light: scale-color($secondary, $lightness: 20%);
 
 // gradint effect
-$green-gradient: linear-gradient(to right, #004c4c, #00716b);
+$primary-gradient: linear-gradient(to right, $primary-dark, $primary-light);
 
 // fonts
 $title-font: "Roboto Condensed", sans-serif;

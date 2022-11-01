@@ -85,7 +85,7 @@ export default class DetailView extends Vue {
 
   .show-title {
     font-family: $title-font;
-    color: $green-dark;
+    color: $primary-dark;
     font-weight: bold;
   }
 
@@ -94,7 +94,7 @@ export default class DetailView extends Vue {
     line-height: 2rem;
     font-weight: 800;
     font-family: $title-font;
-    color: $green-dark;
+    color: $primary-dark;
   }
 
   .tags {
@@ -107,7 +107,7 @@ export default class DetailView extends Vue {
 
   .info-group {
     display: flex;
-    color: $green;
+    color: $primary;
 
     .info-label {
       padding: $spacing-2 $spacing-2 $spacing-2 0;

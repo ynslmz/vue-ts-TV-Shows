@@ -72,7 +72,7 @@ export default class Header extends Vue {
 </script>
 <style lang="scss" scoped>
 .header {
-  background: $green-gradient;
+  background: $primary-gradient;
   padding: $spacing-4;
 
   a.home-link {

@@ -34,9 +34,9 @@ export default class SearchList extends Vue {
   justify-content: center;
   align-items: center;
   padding: $spacing-3 0;
-  border: 1px solid $green-dark;
+  border: 1px solid $primary-dark;
   border-radius: 0 0 $spacing-2 $spacing-2;
-  background: $yellow-light;
+  background: $white;
   z-index: 100;
 
   .search-results {
@@ -44,7 +44,7 @@ export default class SearchList extends Vue {
   }
   .no-result-text {
     font-weight: 500;
-    color: $green-dark;
+    color: $primary-dark;
     padding: $spacing-10;
   }
 }

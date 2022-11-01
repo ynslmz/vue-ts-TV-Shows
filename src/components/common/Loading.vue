@@ -44,7 +44,7 @@ export default class Loading extends Vue {}
   width: 16px;
   height: 16px;
   border-radius: 50%;
-  background: $green-dark;
+  background: $primary-dark;
   animation: lds-grid 1.2s linear infinite;
 }
 .lds-grid div:nth-child(1) {

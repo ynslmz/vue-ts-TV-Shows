@@ -1,12 +1,10 @@
 <template>
-  <router-link :to="`/details/${item.id}`">
-    <div class="search-result-item">
-      <img class="img" :src="image" :alt="item.name" />
-      <p class="title">{{ item.name }}</p>
-      <p class="badge" v-if="item.rating.average">
-        {{ Number(item.rating.average).toFixed(1) }}
-      </p>
-    </div>
+  <router-link class="search-result-item" :to="`/details/${item.id}`">
+    <img class="img" :src="image" :alt="item.name" />
+    <p class="title">{{ item.name }}</p>
+    <p class="badge" v-if="item.rating.average">
+      {{ Number(item.rating.average).toFixed(1) }}
+    </p>
   </router-link>
 </template>
 
@@ -27,7 +25,7 @@ export default class SearchResultItem extends Vue {
 </script>
 <style lang="scss" scoped>
 .search-result-item {
-  color: $green-dark;
+  color: $primary-dark;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -37,11 +35,12 @@ export default class SearchResultItem extends Vue {
     margin-bottom: 0;
   }
 
-  &:nth-last-child(odd) {
-    background-color: $yellow-light;
+  &:nth-child(even) {
+    background-color: $gray;
   }
-  &:nth-last-child(even) {
-    background-color: $yellow;
+
+  &:nth-child(odd) {
+    background-color: $white;
   }
 
   .img {
@@ -52,7 +51,6 @@ export default class SearchResultItem extends Vue {
 
   .title {
     text-align: left;
-
     font-weight: 500;
     flex-grow: 1;
     padding: $spacing-3;
