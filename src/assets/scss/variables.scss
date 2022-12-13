@@ -1,0 +1,39 @@
+// colors
+$white: #F5EFE6;
+$gray: #edede9;
+$primary: #1C3879;
+$black: #222222;
+$secondary: #362626;
+$primary-dark: scale-color($primary, $lightness: -20%);
+$primary-light: scale-color($primary, $lightness: 20%);
+$secondary-dark: scale-color($secondary, $lightness: -20%);
+$secondary-light: scale-color($secondary, $lightness: 20%);
+
+// gradint effect
+$primary-gradient: linear-gradient(to right, $primary-dark, $primary-light);
+
+// fonts
+$title-font: "Roboto Condensed", sans-serif;
+$text-font: Roboto, sans-serif;
+
+@for $i from 1 through 6 {
+    h#{7 - $i} {
+        font-size: 1 + $i * .25em;
+    }
+}
+
+// spacings
+$spacing: 5px;
+$spacing-0: $spacing * 0;
+$spacing-1: $spacing * 1;
+$spacing-2: $spacing * 2;
+$spacing-3: $spacing * 3;
+$spacing-4: $spacing * 4;
+$spacing-5: $spacing * 5;
+$spacing-6: $spacing * 6;
+$spacing-7: $spacing * 7;
+$spacing-8: $spacing * 8;
+$spacing-9: $spacing * 9;
+$spacing-10: $spacing * 10;
+$spacing-11: $spacing * 11;
+$spacing-12: $spacing * 12;

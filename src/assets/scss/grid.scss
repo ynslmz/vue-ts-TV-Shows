@@ -1,0 +1,33 @@
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+    display: flex;
+    flex-direction: column;
+}
+
+.row {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.col {
+    width: 100%;
+    padding: $spacing-3
+}
+
+.flex-grow {
+    flex-grow: 1;
+}
+
+/* Below (landscape tablets, 768px and up) */
+@media only screen and (max-width: 768px) {
+    .row {
+        flex-wrap: wrap;
+
+        .col {
+            margin: $spacing-3;
+        }
+    }
+}

@@ -1,0 +1,39 @@
+@import "./reset"; // to reset preset values 
+@import "./variables"; // global variables
+@import "./grid";
+
+html {
+    font-family: sans-serif;
+    line-height: 1.15;
+    font-size: 18px;
+}
+
+a {
+    text-decoration: none;
+}
+
+.text {
+    &-left {
+        text-align: left;
+    }
+
+    &-center {
+        text-align: center;
+    }
+
+    &-right {
+        text-align: right;
+    }
+}
+
+.badge {
+    font-size: 0.5rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    background-color: $primary;
+    color: $white;
+    padding: $spacing-1;
+    border-radius: $spacing-1;
+    margin: $spacing-1;
+}
